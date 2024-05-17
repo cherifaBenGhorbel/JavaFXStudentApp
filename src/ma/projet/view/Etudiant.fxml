@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane prefHeight="506.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.projet.controller.ControllerEtudiant">
+    <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+    
+    <VBox spacing="10">
+        <TitledPane collapsible="false" text="Information Étudiants">
+            <content>
+                <GridPane>
+                    <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+                    <TextField fx:id="nomField" prefHeight="26.0" prefWidth="270.0" promptText="Nom" />
+                    <TextField fx:id="prenomField" promptText="Prénom" GridPane.rowIndex="1" />
+                    <ComboBox fx:id="filiereField" promptText="Filière" GridPane.rowIndex="2" />
+
+                    <VBox GridPane.rowIndex="3" spacing="5">
+                        <RadioButton fx:id="radioM" text="M" />
+                        <RadioButton fx:id="radioF" text="F" />
+                    </VBox>
+                </GridPane>
+            </content>
+        </TitledPane>
+        
+        <GridPane>
+            <Button onAction="#handleAddEtudiant" prefHeight="26.0" prefWidth="77.0" text="Ajouter" GridPane.columnIndex="1" />
+            <Button onAction="#deleteEtudiant" prefHeight="26.0" prefWidth="81.0" text="Supprimer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button onAction="#modifierEtudiant" prefHeight="26.0" prefWidth="82.0" text="Modifier" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+        
+        <TitledPane collapsible="false" text="Liste des Étudiants">
+            <content>
+                <TableView fx:id="etudiantTable" prefHeight="200.0" prefWidth="400.0">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" />
+                        <TableColumn fx:id="nomColumn" text="Nom" />
+                        <TableColumn fx:id="prenomColumn" text="Prénom" />
+                        <TableColumn fx:id="sexeColumn" text="Sexe" />
+                        <TableColumn fx:id="filiereColumn" text="Filière" />
+                    </columns>
+                </TableView>
+            </content>
+        </TitledPane>
+    </VBox>
+
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
